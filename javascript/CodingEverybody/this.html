@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        console.log('----- window -----');
+
+        function func() {
+            if (window === this) {
+                console.log('window === this')
+            }
+        }
+        func();
+
+        console.log('----- method -----');
+
+        const o = {
+            func: function () {
+                if (o === this) {
+                    console.log('o === this');
+                }
+            }
+        }
+        o.func();
+
+        console.log('----- constructor -----');
+        
+        let funcThis = null;
+
+        function Func() {
+            funcThis = this;
+        }
+
+        // 일반함수
+        const o1 = Func();
+        if (funcThis === window) {
+            console.log('window');
+        }
+
+        // 생성자
+        const o2 = new Func();
+        if (funcThis === o2) {
+            console.log('o2');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        function Person() {};
+        const p = new Person();
+        p.name = 'Son';
+        p.introduce = function() {
+            return `My name is ${this.name}.`;
+        }
+        console.log(p.introduce());
+
+        console.log('----------');
+
+        function Person2() {};
+        const p1 = new Person2();
+        p1.name = 'Son';
+        p1.introduce = function() {
+            return `My name is ${this.name}.`;
+        }
+        console.log(p1.introduce());
+
+        const p2 = new Person2();
+        p2.name = 'Kim';
+        p2.introduce = function() {
+            return `My name is ${this.name}.`;
+        }
+        console.log(p2.introduce());
+
+        console.log('----------');
+
+        function Person3(name) {
+            this.name = name;
+            this.introduce = function() {
+                return `My name is ${this.name}.`;
+            }
+        }
+
+        const p3 = new Person3('Son');
+        console.log(p3.introduce());
+        const p4 = new Person3('Kim');
+        console.log(p4.introduce());
+    </script>
+</body>
+</html>
