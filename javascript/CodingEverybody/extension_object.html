@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extension_object</title>
+</head>
+<body>
+    <script>
+        Object.prototype.contain = function(needle) {
+            for(let name in this) {
+                if(this[name] === needle) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        const o = {'name' : 'Park', 'city' : 'seoul'};
+        console.log(o.contain('Park'));
+        console.log(o.contain('Lee'));
+        const a = ['Park', 'Kim', 'Lee'];
+        console.log(a.contain('Kim'));
+
+        console.log('----------');
+        // object의 확장은 신중히
+        // 모든 객체에 영향을 주기 때문에
+
+        for(let name in a) {
+            console.log(name);
+        }
+
+        console.log('----------');
+        for(let name in a) {
+            if(a.hasOwnProperty(name)) {
+                console.log(name);
+            }
+        }
+    </script>
+</body>
+</html>

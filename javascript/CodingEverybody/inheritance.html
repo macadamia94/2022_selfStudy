@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inheritance(상속)</title>
+</head>
+<body>
+    <script>
+        function Person(name) {
+            this.name = name;
+            this.introduce = function() {
+                return `My name is ${this.name}.`;
+            }
+        }
+        const p1 = new Person('Son');
+        console.log(p1.introduce());
+
+        console.log('----------');
+
+        function Person2(name) {
+            this.name = name;
+        }
+        Person2.prototype.name = null;
+        Person2.prototype.introduce = function() {
+            return `My name is ${this.name}.`;
+        }
+        const p2 = new Person2('Kim');
+        console.log(p2.introduce());
+
+        function Programmer(name) {
+            this.name = name;
+        }
+        Programmer.prototype = new Person2();
+
+        const p3 = new Programmer('Lee');
+        console.log(p3.introduce());
+    </script>
+</body>
+</html>

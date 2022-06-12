@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference</title>
+</head>
+<body>
+    <script>
+        console.log('---primitive---');
+        const a = 1;
+        function func(b) {
+            b = 2;
+        }
+        func(a);
+        console.log(a);
+
+        console.log('---reference---');
+
+        const a2 = {'id' : 1}; // a2가 객체지만
+        function func(b2) {
+            b2 = {'id' : 2}; // b2에 객체를 할당함으로서 a2와 b2의 연결이 끊김
+        }
+        func(a2);
+        console.log(a2.id);
+
+        const a3 = {'id2' : 1}; // a3이 객체이기 때문에
+        function func(b3) {     // b3과 a3은 같은 주소값을 가짐
+            b3.id2 = 2;         // 같은 주소값을 가지기 때문에 b3의 id2값을 변경하면 
+        }
+        func(a3);
+        console.log(a3.id2);    // a3의 id2값도 변경된다
+    </script>
+</body>
+</html>
