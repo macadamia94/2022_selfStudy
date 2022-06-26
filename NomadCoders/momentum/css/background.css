@@ -1,0 +1,5 @@
+body > img {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in;
+    position: absolute;    
+}
